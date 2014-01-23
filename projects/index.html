@@ -3,11 +3,13 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>Blog Archives - Despo Pentara</title>
+	<title>projects - Despo Pentara</title>
 	<meta name="author" content="Despo Pentara">
 
 	
-	<meta name="description" content=" ">
+	<meta name="description" content="issuehub.io Hangman Start a new game 1
+curl -X POST http://hangman-api.herokuapp.com/hangman Guess a letter 1
+curl -X PUT http://hangman-api. &hellip;">
 	
 
   <!-- http://t.co/dKP3o1e -->
@@ -17,7 +19,7 @@
 
 	<link href="" rel="alternate" title="Despo Pentara" type="application/atom+xml">
 	
-	<link rel="canonical" href="http://despo.github.io/blog/archives/">
+	<link rel="canonical" href="http://despo.github.io/projects/">
 	<link href="/favicon.png" rel="shortcut icon">
 	<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
 	<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
@@ -83,12 +85,67 @@ $(function(){
 				
 			
 			<div class="mid-col-container">
-				<div id="content" class="article-inner"><div class="archive-page-wrapper">
-  <div itemscope itemtype="http://schema.org/Blog">
+				<div id="content" class="article-inner"><article class="page">
     
-    </section>
-  </div>
+    <h1 class="title">Projects</h1>
+    
+    <div class="entry-content"><h1><a href="http://issuehub.io">issuehub.io</a></h1>
+
+<p><img src="images/issuehub.png" alt="issuehub" /></p>
+
+<hr />
+
+<h1><a href="http://hangman-api.herokuapp.com">Hangman</a></h1>
+
+<p><img src="images/hangman.png" alt="hangman" /></p>
+
+<h2>Start a new game</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>curl -X POST http://hangman-api.herokuapp.com/hangman</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Guess a letter</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>curl -X PUT http://hangman-api.herokuapp.com/hangman -d token=token -d letter=guess</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Get the solution</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>curl -X GET http://hangman-api.herokuapp.com/hangman -d token=token</span></code></pre></td></tr></table></div></figure>
+
+
+<hr />
+
+<h1><a href="http://gorillas.herokuapp.com">Gorillas</a></h1>
+
+<p><img src="images/gorillas.png" alt="Gorillas" /></p>
 </div>
+</article>
+
+	<div class="share">
+	<div class="share_icon_group addthis_toolbox addthis_default_style addthis_32x32_style">
+	
+  <a class="share_icon addthis_button_preferred_1"></a>
+	
+	
+	
+	<a class="share_icon addthis_button_preferred_2"></a>
+	<a class="share_icon addthis_button_preferred_4"></a>
+	</div>
+  <script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-52e1830e0dc3c20d"></script>
+</div>
+
+
+
+<section id="comment">
+    <h1 class="title">Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+</section>
+
 </div>
 			</div>
 			<footer id="footer" class="inner"><br/>
@@ -112,7 +169,10 @@ $(function(){
       var disqus_shortname = 'despo';
       
         
-        var disqus_script = 'count.js';
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://despo.github.io/projects/index.html';
+        var disqus_url = 'http://despo.github.io/projects/index.html';
+        var disqus_script = 'embed.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
