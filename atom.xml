@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Despo Pentara]]></title>
+  <link href="http://despo.github.io/atom.xml" rel="self"/>
+  <link href="http://despo.github.io/"/>
+  <updated>2014-01-23T17:43:19+00:00</updated>
+  <id>http://despo.github.io/</id>
+  <author>
+    <name><![CDATA[Despo Pentara]]></name>
+    <email><![CDATA[despo@extractmethod.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+</feed>
