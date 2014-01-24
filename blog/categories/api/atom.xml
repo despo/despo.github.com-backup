@@ -4,7 +4,7 @@
   <title><![CDATA[Category: API | Despo Pentara]]></title>
   <link href="http://despo.github.io/blog/categories/api/atom.xml" rel="self"/>
   <link href="http://despo.github.io/"/>
-  <updated>2014-01-24T04:35:49+00:00</updated>
+  <updated>2014-01-24T16:35:53+00:00</updated>
   <id>http://despo.github.io/</id>
   <author>
     <name><![CDATA[Despo Pentara]]></name>
@@ -18,13 +18,13 @@
     <link href="http://despo.github.io/blog/2014/01/24/hangman-api/"/>
     <updated>2014-01-24T02:04:25+00:00</updated>
     <id>http://despo.github.io/blog/2014/01/24/hangman-api</id>
-    <content type="html"><![CDATA[<p>In the latest <a href="http://codebar.io">codebar.io</a> <a href="http://codebar.github.io/tutorials/js/lesson5/tutorial.html">tutorial</a>, we are working with AJAX Requests. We have already used with the <a href="">Github</a> and the <a href="http://codebar.github.io/tutorials/examples/tv-schedule/">BBC</a> APIs issuing <strong>GET</strong> requests to retrieve information.</p>
+    <content type="html"><![CDATA[<p>In the latest <a href="http://codebar.io">codebar.io</a> <a href="http://codebar.github.io/tutorials/js/lesson5/tutorial.html">tutorial</a>, we are working with AJAX Requests. We have already used the <a href="">Github</a> and the <a href="http://codebar.github.io/tutorials/examples/tv-schedule/">BBC</a> APIs issuing <strong>GET</strong> requests to retrieve information.</p>
 
 <p>I built a sinatra app that handles JSON requests using <strong>POST</strong>, <strong>PUT</strong> and <strong>GET</strong> to manage a Hangman game. As part of doing this, I also had to enable CORS<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup> in Sinatra so that the calls could be executed from any domain.</p>
 
 <h2>CORS</h2>
 
-<p>To enable CORS first you must allow requests originating from any domain bu setting the <strong>Access-Control-Allow-Origin</strong> to any (unless you only want to only allow specific domains).</p>
+<p>To enable CORS first you must allow requests originating from any domain but setting the <strong>Access-Control-Allow-Origin</strong> to any (unless you only want to only allow specific domains).</p>
 
 <p><code>ruby
 headers['Access-Control-Allow-Origin'] = "*"
@@ -50,6 +50,36 @@ end
 <br/>
 
 
+<h2>Game State</h2>
+
+<p>Using a database to store the game state is a bit overkill for such a simple app, so I instead I chose to store the state in a <code>Base64</code> encoded token which the client sends on each request. Alternatively, a cookie could have been used, but explicitly passing the token allows the client to run multiple games at the same time, and also required less effort to implement.</p>
+
+<h3>Generating the token</h3>
+
+<p>```ruby
+Base64.urlsafe_encode64({</p>
+
+<pre><code>:solution =&gt; hangman.solution,
+:correct_guesses =&gt; hangman.correct_guesses,
+:wrong_guesses =&gt; hangman.wrong_guesses
+}.to_json)
+</code></pre>
+
+<p>```</p>
+
+<br/>
+
+
+<h3>Getting information from the token</h3>
+
+<p>```
+properties = JSON.parse(Base64.urlsafe_decode64(token))</p>
+
+<p>```</p>
+
+<br/>
+
+
 <h2>Playing Hangman using <strong>curl</strong></h2>
 
 <h3>Start a new game</h3>
@@ -60,15 +90,26 @@ curl -X POST http://hangman-api.herokuapp.com/hangman
 
 <h3>Guess a letter</h3>
 
-<p><code>
-curl -X PUT http://hangman-api.herokuapp.com/hangman -d token=token -d letter=guess
-</code></p>
+<p>```
+curl -X PUT \</p>
+
+<pre><code>  http://hangman-api.herokuapp.com/hangman \
+  -d token=token \
+  -d letter=guess
+</code></pre>
+
+<p>```</p>
 
 <h3>Get the solution</h3>
 
-<p><code>
-curl -X GET http://hangman-api.herokuapp.com/hangman -d token=token
-</code></p>
+<p>```
+curl -X GET \</p>
+
+<pre><code>  http://hangman-api.herokuapp.com/hangman \
+  -d token=token
+</code></pre>
+
+<p>```</p>
 
 <p><a href="http://hangman-api.herokuapp.com/api">Read more</a> about the API.</p>
 

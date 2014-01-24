@@ -7,7 +7,7 @@
 	<meta name="author" content="Despo Pentara">
 
 	
-	<meta name="description" content="Hangman API Jan 24th, 2014 In the latest codebar.io tutorial, we are working with AJAX Requests. We have already used with the Github and the BBC &hellip;">
+	<meta name="description" content="Hangman API Jan 24th, 2014 In the latest codebar.io tutorial, we are working with AJAX Requests. We have already used the Github and the BBC APIs &hellip;">
 	
 
   <!-- http://t.co/dKP3o1e -->
@@ -99,13 +99,13 @@ $(function(){
 
 
   <div class="post-date"><time datetime="2014-01-24T02:04:25+00:00" data-updated="true" itemprop="datePublished">Jan 24<span>th</span>, 2014</time></div>
-	<div class="entry-content" itemprop="articleBody"><p>In the latest <a href="http://codebar.io">codebar.io</a> <a href="http://codebar.github.io/tutorials/js/lesson5/tutorial.html">tutorial</a>, we are working with AJAX Requests. We have already used with the <a href="">Github</a> and the <a href="http://codebar.github.io/tutorials/examples/tv-schedule/">BBC</a> APIs issuing <strong>GET</strong> requests to retrieve information.</p>
+	<div class="entry-content" itemprop="articleBody"><p>In the latest <a href="http://codebar.io">codebar.io</a> <a href="http://codebar.github.io/tutorials/js/lesson5/tutorial.html">tutorial</a>, we are working with AJAX Requests. We have already used the <a href="">Github</a> and the <a href="http://codebar.github.io/tutorials/examples/tv-schedule/">BBC</a> APIs issuing <strong>GET</strong> requests to retrieve information.</p>
 
 <p>I built a sinatra app that handles JSON requests using <strong>POST</strong>, <strong>PUT</strong> and <strong>GET</strong> to manage a Hangman game. As part of doing this, I also had to enable CORS<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup> in Sinatra so that the calls could be executed from any domain.</p>
 
 <h2>CORS</h2>
 
-<p>To enable CORS first you must allow requests originating from any domain bu setting the <strong>Access-Control-Allow-Origin</strong> to any (unless you only want to only allow specific domains).</p>
+<p>To enable CORS first you must allow requests originating from any domain but setting the <strong>Access-Control-Allow-Origin</strong> to any (unless you only want to only allow specific domains).</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">headers</span><span class="o">[</span><span class="s1">&#39;Access-Control-Allow-Origin&#39;</span><span class="o">]</span> <span class="o">=</span> <span class="s2">&quot;*&quot;</span>
@@ -139,6 +139,42 @@ $(function(){
 <br/>
 
 
+<h2>Game State</h2>
+
+<p>Using a database to store the game state is a bit overkill for such a simple app, so I instead I chose to store the state in a <code>Base64</code> encoded token which the client sends on each request. Alternatively, a cookie could have been used, but explicitly passing the token allows the client to run multiple games at the same time, and also required less effort to implement.</p>
+
+<h3>Generating the token</h3>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="no">Base64</span><span class="o">.</span><span class="n">urlsafe_encode64</span><span class="p">({</span>
+</span><span class='line'>    <span class="ss">:solution</span> <span class="o">=&gt;</span> <span class="n">hangman</span><span class="o">.</span><span class="n">solution</span><span class="p">,</span>
+</span><span class='line'>    <span class="ss">:correct_guesses</span> <span class="o">=&gt;</span> <span class="n">hangman</span><span class="o">.</span><span class="n">correct_guesses</span><span class="p">,</span>
+</span><span class='line'>    <span class="ss">:wrong_guesses</span> <span class="o">=&gt;</span> <span class="n">hangman</span><span class="o">.</span><span class="n">wrong_guesses</span>
+</span><span class='line'>    <span class="p">}</span><span class="o">.</span><span class="n">to_json</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<br/>
+
+
+<h3>Getting information from the token</h3>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">properties</span> <span class="o">=</span> <span class="no">JSON</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="no">Base64</span><span class="o">.</span><span class="n">urlsafe_decode64</span><span class="p">(</span><span class="n">token</span><span class="p">))</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<br/>
+
+
 <h2>Playing Hangman using <strong>curl</strong></h2>
 
 <h3>Start a new game</h3>
@@ -151,14 +187,24 @@ $(function(){
 <h3>Guess a letter</h3>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>curl -X PUT http://hangman-api.herokuapp.com/hangman -d <span class="nv">token</span><span class="o">=</span>token -d <span class="nv">letter</span><span class="o">=</span>guess
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>curl -X PUT <span class="se">\</span>
+</span><span class='line'>      http://hangman-api.herokuapp.com/hangman <span class="se">\</span>
+</span><span class='line'>      -d <span class="nv">token</span><span class="o">=</span>token <span class="se">\</span>
+</span><span class='line'>      -d <span class="nv">letter</span><span class="o">=</span>guess
 </span></code></pre></td></tr></table></div></figure>
 
 
 <h3>Get the solution</h3>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>curl -X GET http://hangman-api.herokuapp.com/hangman -d <span class="nv">token</span><span class="o">=</span>token
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>curl -X GET <span class="se">\</span>
+</span><span class='line'>      http://hangman-api.herokuapp.com/hangman <span class="se">\</span>
+</span><span class='line'>      -d <span class="nv">token</span><span class="o">=</span>token
 </span></code></pre></td></tr></table></div></figure>
 
 
