@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Sinatra | Despo Pentara]]></title>
   <link href="http://despo.github.io/blog/categories/sinatra/atom.xml" rel="self"/>
   <link href="http://despo.github.io/"/>
-  <updated>2014-01-24T16:43:31+00:00</updated>
+  <updated>2014-01-24T16:49:56+00:00</updated>
   <id>http://despo.github.io/</id>
   <author>
     <name><![CDATA[Despo Pentara]]></name>
@@ -33,7 +33,7 @@ headers['Access-Control-Allow-Origin'] = "*"
 <br/>
 
 
-<h3>not <a href="http://www.w3.org/TR/cors/#simple-method">so simple</a> requests</h3>
+<h3>Not <a href="http://www.w3.org/TR/cors/#simple-method">so simple</a> requests</h3>
 
 <p>For every not <a href="http://www.w3.org/TR/cors/#simple-method">so simple</a> request, a preflight request is also issued. The browser asks the server for permission to issue the request and waits until its granted before doing anything else.</p>
 
