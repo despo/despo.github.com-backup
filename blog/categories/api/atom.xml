@@ -4,7 +4,7 @@
   <title><![CDATA[Category: API | Despo Pentara]]></title>
   <link href="http://despo.github.io/blog/categories/api/atom.xml" rel="self"/>
   <link href="http://despo.github.io/"/>
-  <updated>2014-01-24T16:35:53+00:00</updated>
+  <updated>2014-01-24T16:43:31+00:00</updated>
   <id>http://despo.github.io/</id>
   <author>
     <name><![CDATA[Despo Pentara]]></name>
@@ -18,7 +18,7 @@
     <link href="http://despo.github.io/blog/2014/01/24/hangman-api/"/>
     <updated>2014-01-24T02:04:25+00:00</updated>
     <id>http://despo.github.io/blog/2014/01/24/hangman-api</id>
-    <content type="html"><![CDATA[<p>In the latest <a href="http://codebar.io">codebar.io</a> <a href="http://codebar.github.io/tutorials/js/lesson5/tutorial.html">tutorial</a>, we are working with AJAX Requests. We have already used the <a href="">Github</a> and the <a href="http://codebar.github.io/tutorials/examples/tv-schedule/">BBC</a> APIs issuing <strong>GET</strong> requests to retrieve information.</p>
+    <content type="html"><![CDATA[<p>In the latest <a href="http://codebar.io">codebar.io</a> <a href="http://codebar.github.io/tutorials/js/lesson5/tutorial.html">tutorial</a>, we are working with AJAX Requests. We have already used the <a href="http://codebar.github.io/tutorials/examples/github-user-finder/index.html">Github</a> and the <a href="http://codebar.github.io/tutorials/examples/tv-schedule/">BBC</a> APIs issuing <strong>GET</strong> requests to retrieve information.</p>
 
 <p>I built a sinatra app that handles JSON requests using <strong>POST</strong>, <strong>PUT</strong> and <strong>GET</strong> to manage a Hangman game. As part of doing this, I also had to enable CORS<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup> in Sinatra so that the calls could be executed from any domain.</p>
 
