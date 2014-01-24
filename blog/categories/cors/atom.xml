@@ -4,7 +4,7 @@
   <title><![CDATA[Category: CORS | Despo Pentara]]></title>
   <link href="http://despo.github.io/blog/categories/cors/atom.xml" rel="self"/>
   <link href="http://despo.github.io/"/>
-  <updated>2014-01-24T18:07:28+00:00</updated>
+  <updated>2014-01-24T18:20:12+00:00</updated>
   <id>http://despo.github.io/</id>
   <author>
     <name><![CDATA[Despo Pentara]]></name>
@@ -73,7 +73,7 @@ Base64.urlsafe_encode64({</p>
 <h3>Getting information from the token</h3>
 
 <p>```
-properties = JSON.parse(Base64.urlsafe_decode64(token))</p>
+JSON.parse(Base64.urlsafe_decode64(token))</p>
 
 <p>```</p>
 

@@ -4,7 +4,7 @@
   <title><![CDATA[Despo Pentara]]></title>
   <link href="http://despo.github.io/atom.xml" rel="self"/>
   <link href="http://despo.github.io/"/>
-  <updated>2014-01-24T18:07:28+00:00</updated>
+  <updated>2014-01-24T18:20:12+00:00</updated>
   <id>http://despo.github.io/</id>
   <author>
     <name><![CDATA[Despo Pentara]]></name>
@@ -85,7 +85,7 @@
 <h3>Getting information from the token</h3>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">properties</span> <span class="o">=</span> <span class="no">JSON</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="no">Base64</span><span class="o">.</span><span class="n">urlsafe_decode64</span><span class="p">(</span><span class="n">token</span><span class="p">))</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="no">JSON</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="no">Base64</span><span class="o">.</span><span class="n">urlsafe_decode64</span><span class="p">(</span><span class="n">token</span><span class="p">))</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
