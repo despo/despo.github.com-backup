@@ -4,7 +4,7 @@
   <title><![CDATA[Despo Pentara]]></title>
   <link href="http://despo.github.io/atom.xml" rel="self"/>
   <link href="http://despo.github.io/"/>
-  <updated>2014-01-24T16:53:06+00:00</updated>
+  <updated>2014-01-24T16:59:40+00:00</updated>
   <id>http://despo.github.io/</id>
   <author>
     <name><![CDATA[Despo Pentara]]></name>
@@ -138,7 +138,7 @@
 <hr/>
 <ol>
 <li id="fn:1">
-<p><a href="http://www.w3.org/TR/cors/">Cross site scripting</a><a href="#fnref:1" rev="footnote">&#8617;</a></p></li>
+<p><a href="http://www.w3.org/TR/cors/">Cross-Origin Resource Sharing</a><a href="#fnref:1" rev="footnote">&#8617;</a></p></li>
 </ol>
 </div>
 
