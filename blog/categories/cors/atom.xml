@@ -4,7 +4,7 @@
   <title><![CDATA[Category: CORS | Despo Pentara]]></title>
   <link href="http://despo.github.io/blog/categories/cors/atom.xml" rel="self"/>
   <link href="http://despo.github.io/"/>
-  <updated>2014-01-24T16:59:40+00:00</updated>
+  <updated>2014-01-24T17:47:19+00:00</updated>
   <id>http://despo.github.io/</id>
   <author>
     <name><![CDATA[Despo Pentara]]></name>
@@ -24,7 +24,7 @@
 
 <h2>CORS</h2>
 
-<p>To enable CORS first you must allow requests originating from any domain but setting the <strong>Access-Control-Allow-Origin</strong> to any (unless you only want to only allow specific domains).</p>
+<p>To enable CORS first you must allow requests originating from any domain by setting the <strong>Access-Control-Allow-Origin</strong> to any (unless you only want to only allow specific domains).</p>
 
 <p><code>ruby
 headers['Access-Control-Allow-Origin'] = "*"
