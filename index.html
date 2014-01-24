@@ -132,7 +132,7 @@ $(function(){
 
 <h2>Game State</h2>
 
-<p>Using a database to store the game state is a bit overkill for such a simple app, so instead I store the state in a <code>Base64</code> encoded token which the client sends on each request &ndash; thanks to <a href="http://twitter.com/barisbalic">@barisbalic</a> for the suggestion. Alternatively, a cookie could have been used, but explicitly passing the token allows the client to run multiple games at the same time, and also required less effort to implement.</p>
+<p>Using a database to store the game state is a bit overkill for such a simple app, so instead I store the state in a <code>Base64</code> encoded token which the client sends on each request &ndash; thanks to <a href="http://twitter.com/barisbalic">@barisbalic</a> for the suggestion. Alternatively, a cookie could have been used, but explicitly passing the token allows the client to run multiple games at the same time, and also required less effort to implement <img class="emoji" src="https://github.global.ssl.fastly.net/images/icons/emoji/v.png" height="20" width="20" align="absmiddle">.</p>
 
 <h3>Generating the token</h3>
 
