@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Coffeescript | Despo Pentara]]></title>
+  <link href="http://despo.github.io/blog/categories/coffeescript/atom.xml" rel="self"/>
+  <link href="http://despo.github.io/"/>
+  <updated>2014-01-24T04:35:49+00:00</updated>
+  <id>http://despo.github.io/</id>
+  <author>
+    <name><![CDATA[Despo Pentara]]></name>
+    <email><![CDATA[despo@extractmethod.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Gorillas]]></title>
+    <link href="http://despo.github.io/blog/2012/04/01/gorillas/"/>
+    <updated>2012-04-01T01:00:00+01:00</updated>
+    <id>http://despo.github.io/blog/2012/04/01/gorillas</id>
+    <content type="html"><![CDATA[<p><a href="http://gorillas.herokuapp.com">Gorillas</a> is a clone of <a href="http://en.wikipedia.org/wiki/Gorillas_(video_game)">QBasic&rsquo;s Gorillas</a> built in coffeescript.</p>
+
+<p><img src="http://despo.github.io/images/gorillas.png" alt="Gorillas in Coffeescript" /></p>
+
+<p>There is some missing functionality like the <a href="https://github.com/despo/gorillas/blob/master/docs/gorillas.bas#L669">startup screen</a> and the <a href="https://github.com/despo/gorillas/blob/master/docs/gorillas.bas#L790">wind speed</a>. I would also like to optionally automate one of the two player and store scores for a username. If you&rsquo;d like to help out you can <a href="http://github.com/despo/gorillas">fork the project</a> and issue a PR.</p>
+]]></content>
+  </entry>
+  
+</feed>

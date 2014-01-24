@@ -3,11 +3,11 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>Despo Pentara</title>
+	<title>Hangman API - Despo Pentara</title>
 	<meta name="author" content="Despo Pentara">
 
 	
-	<meta name="description" content="Hangman API In the latest codebar.io tutorial, we are working with AJAX Requests. We have already used with the Github and the BBC APIs issuing GET &hellip;">
+	<meta name="description" content="Hangman API Jan 24th, 2014 In the latest codebar.io tutorial, we are working with AJAX Requests. We have already used with the Github and the BBC &hellip;">
 	
 
   <!-- http://t.co/dKP3o1e -->
@@ -17,7 +17,7 @@
 
 	<link href="" rel="alternate" title="Despo Pentara" type="application/atom+xml">
 	
-	<link rel="canonical" href="http://despo.github.io/">
+	<link rel="canonical" href="http://despo.github.io/blog/2014/01/24/hangman-api/">
 	<link href="/favicon.png" rel="shortcut icon">
 	<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
 	<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
@@ -82,15 +82,24 @@ $(function(){
 				
 			
 			<div class="mid-col-container">
-				<div id="content" class="article-inner">
-<div itemscope itemtype="http://schema.org/Blog">
+				<div id="content" class="article-inner"><article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  
+	<h1 class="title" itemprop="name">Hangman API</h1>
+  
+
+
+
+
+
+
+
 
   
-    
-        <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-	<h1 class="title" itemprop="name"><a href="/blog/2014/01/24/hangman-api/" itemprop="url">Hangman API</a></h1>
-	<div class="entry-content" itemprop="articleBody">
-		<p>In the latest <a href="http://codebar.io">codebar.io</a> <a href="http://codebar.github.io/tutorials/js/lesson5/tutorial.html">tutorial</a>, we are working with AJAX Requests. We have already used with the <a href="">Github</a> and the <a href="http://codebar.github.io/tutorials/examples/tv-schedule/">BBC</a> APIs issuing <strong>GET</strong> requests to retrieve information.</p>
+
+
+
+  <div class="post-date"><time datetime="2014-01-24T02:04:25+00:00" data-updated="true" itemprop="datePublished">Jan 24<span>th</span>, 2014</time></div>
+	<div class="entry-content" itemprop="articleBody"><p>In the latest <a href="http://codebar.io">codebar.io</a> <a href="http://codebar.github.io/tutorials/js/lesson5/tutorial.html">tutorial</a>, we are working with AJAX Requests. We have already used with the <a href="">Github</a> and the <a href="http://codebar.github.io/tutorials/examples/tv-schedule/">BBC</a> APIs issuing <strong>GET</strong> requests to retrieve information.</p>
 
 <p>I built a sinatra app that handles JSON requests using <strong>POST</strong>, <strong>PUT</strong> and <strong>GET</strong> to manage a Hangman game. As part of doing this, I also had to enable CORS<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup> in Sinatra so that the calls could be executed from any domain.</p>
 
@@ -168,38 +177,31 @@ $(function(){
 </ol>
 </div>
 
-
-		
-		
-	</div>
-
-</article>
-  
-
-  
-    
-        <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-	<h1 class="title" itemprop="name"><a href="/blog/2012/04/01/gorillas/" itemprop="url">Gorillas</a></h1>
-	<div class="entry-content" itemprop="articleBody">
-		<p><a href="http://gorillas.herokuapp.com">Gorillas</a> is a clone of <a href="http://en.wikipedia.org/wiki/Gorillas_(video_game)">QBasic&rsquo;s Gorillas</a> built in coffeescript.</p>
-
-<p><img src="http://despo.github.io/images/gorillas.png" alt="Gorillas in Coffeescript" /></p>
-
-<p>There is some missing functionality like the <a href="https://github.com/despo/gorillas/blob/master/docs/gorillas.bas#L669">startup screen</a> and the <a href="https://github.com/despo/gorillas/blob/master/docs/gorillas.bas#L790">wind speed</a>. I would also like to optionally automate one of the two player and store scores for a username. If you&rsquo;d like to help out you can <a href="http://github.com/despo/gorillas">fork the project</a> and issue a PR.</p>
-
-		
-		
-	</div>
-
-</article>
-  
-
 </div>
-<nav id="pagenavi">
-    
-    
-    <div class="center"><a href="/blog/archives">Blog Archives</a></div>
-</nav>
+
+</article>
+
+	<div class="share">
+	<div class="share_icon_group addthis_toolbox addthis_default_style addthis_32x32_style">
+	
+  <a class="share_icon addthis_button_preferred_1"></a>
+	
+	
+	
+	<a class="share_icon addthis_button_preferred_2"></a>
+	<a class="share_icon addthis_button_preferred_4"></a>
+	</div>
+  <script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-52e1830e0dc3c20d"></script>
+</div>
+
+
+
+<section id="comment">
+    <h1 class="title">Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+</section>
+
 </div>
 			</div>
 			<footer id="footer" class="inner"><br/>
@@ -223,7 +225,10 @@ $(function(){
       var disqus_shortname = 'despo';
       
         
-        var disqus_script = 'count.js';
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://despo.github.io/blog/2014/01/24/hangman-api/';
+        var disqus_url = 'http://despo.github.io/blog/2014/01/24/hangman-api/';
+        var disqus_script = 'embed.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Despo Pentara]]></title>
-  <link href="http://despo.github.io/atom.xml" rel="self"/>
+  <title><![CDATA[Category: Game | Despo Pentara]]></title>
+  <link href="http://despo.github.io/blog/categories/game/atom.xml" rel="self"/>
   <link href="http://despo.github.io/"/>
   <updated>2014-01-24T04:35:49+00:00</updated>
   <id>http://despo.github.io/</id>
@@ -26,10 +26,9 @@
 
 <p>To enable CORS first you must allow requests originating from any domain bu setting the <strong>Access-Control-Allow-Origin</strong> to any (unless you only want to only allow specific domains).</p>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">headers</span><span class="o">[</span><span class="s1">&#39;Access-Control-Allow-Origin&#39;</span><span class="o">]</span> <span class="o">=</span> <span class="s2">&quot;*&quot;</span>
-</span></code></pre></td></tr></table></div></figure>
-
+<p><code>ruby
+headers['Access-Control-Allow-Origin'] = "*"
+</code></p>
 
 <br/>
 
@@ -40,20 +39,13 @@
 
 <p>The preflight request is <strong>OPTIONS</strong>.  The response must have <strong>Access-Control-Allow-Origin</strong> and <strong>Access-Control-Allow-Methods</strong> defined. To allow requests issued by JQuery, I also had to allow the <strong>X-Requested-With</strong> header.</p>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">options</span> <span class="s1">&#39;/hangman&#39;</span> <span class="k">do</span>
-</span><span class='line'>  <span class="n">headers</span><span class="o">[</span><span class="s1">&#39;Access-Control-Allow-Origin&#39;</span><span class="o">]</span> <span class="o">=</span> <span class="s2">&quot;*&quot;</span>
-</span><span class='line'>  <span class="n">headers</span><span class="o">[</span><span class="s1">&#39;Access-Control-Allow-Methods&#39;</span><span class="o">]</span> <span class="o">=</span> <span class="s2">&quot;PUT&quot;</span>
-</span><span class='line'>  <span class="n">headers</span><span class="o">[</span><span class="s1">&#39;Access-Control-Allow-Headers&#39;</span><span class="o">]</span> <span class="o">=</span> <span class="s2">&quot;X-Requested-With&quot;</span>
-</span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-
+<p><code>
+options '/hangman' do
+  headers['Access-Control-Allow-Origin'] = "*"
+  headers['Access-Control-Allow-Methods'] = "PUT"
+  headers['Access-Control-Allow-Headers'] = "X-Requested-With"
+end
+</code></p>
 
 <br/>
 
@@ -62,24 +54,21 @@
 
 <h3>Start a new game</h3>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>curl -X POST http://hangman-api.herokuapp.com/hangman
-</span></code></pre></td></tr></table></div></figure>
-
+<p><code>bash
+curl -X POST http://hangman-api.herokuapp.com/hangman
+</code></p>
 
 <h3>Guess a letter</h3>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>curl -X PUT http://hangman-api.herokuapp.com/hangman -d <span class="nv">token</span><span class="o">=</span>token -d <span class="nv">letter</span><span class="o">=</span>guess
-</span></code></pre></td></tr></table></div></figure>
-
+<p><code>
+curl -X PUT http://hangman-api.herokuapp.com/hangman -d token=token -d letter=guess
+</code></p>
 
 <h3>Get the solution</h3>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>curl -X GET http://hangman-api.herokuapp.com/hangman -d <span class="nv">token</span><span class="o">=</span>token
-</span></code></pre></td></tr></table></div></figure>
-
+<p><code>
+curl -X GET http://hangman-api.herokuapp.com/hangman -d token=token
+</code></p>
 
 <p><a href="http://hangman-api.herokuapp.com/api">Read more</a> about the API.</p>
 
